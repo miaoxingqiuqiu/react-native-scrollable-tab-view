@@ -57,8 +57,8 @@ const DefaultTabBar = createReactClass({
   },
 
   render() {
-    const containerWidth = this.props.containerWidth;
-    const numberOfTabs = this.props.tabs.length;
+    const containerWidth = this.props.style && this.props.style.width ?  this.props.style.width :  this.props.containerWidth;
+    const numberOfTabs = this.props.tabs.length; 
     const tabUnderlineStyle = {
       position: 'absolute',
       width: containerWidth / numberOfTabs,
@@ -66,6 +66,7 @@ const DefaultTabBar = createReactClass({
     //  backgroundColor: 'navy',
       bottom: 0,
     };
+	
 
     const translateX = this.props.scrollValue.interpolate({
       inputRange: [0, 1],
